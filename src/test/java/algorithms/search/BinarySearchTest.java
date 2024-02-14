@@ -31,7 +31,7 @@ class BinarySearchTest {
                 arguments(-1, largeList, 2000),
                 arguments(1999, customList, 2000),
                 arguments(9999998, customList, 9999999),
-                arguments(-1, customList, 100000001)
+                arguments(-1, customList, 100000002)
         );
     }
 
