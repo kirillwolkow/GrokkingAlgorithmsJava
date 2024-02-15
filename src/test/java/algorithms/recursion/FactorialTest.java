@@ -12,7 +12,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FactorialTest {
-    private Stream<Arguments> parametersForFindSmallest() {
+    private Stream<Arguments> parametersForCalculateFactorial() {
         return Stream.of(
                 arguments(-1, -5),
                 arguments(1, 0),
@@ -25,7 +25,7 @@ class FactorialTest {
     }
 
     @ParameterizedTest
-    @MethodSource("parametersForFindSmallest")
+    @MethodSource("parametersForCalculateFactorial")
     void calculateFactorial(final int expected, final int num) {
         Assertions.assertEquals(expected, Factorial.calculateFactorial(num));
     }
