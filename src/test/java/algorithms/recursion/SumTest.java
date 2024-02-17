@@ -37,4 +37,27 @@ class SumTest {
     void calculateSum(final int expected, final Collection<Integer> list) {
         Assertions.assertEquals(expected, Sum.calculateSum(list));
     }
+
+    private Stream<Arguments> parametersForCountNumberOfItems() {
+        Collection<Integer> emptyList = new ArrayList<>();
+        Collection<Integer> oneElementList = new ArrayList<>();
+        oneElementList.add(1);
+        Collection<Integer> smallList = generateSmallArrayList();
+        Collection<Integer> mediumList = generateMediumArrayList();
+        Collection<Integer> largeList = generateLargeArrayList();
+
+        return Stream.of(
+                arguments(0, emptyList),
+                arguments(1, oneElementList),
+                arguments(5, smallList),
+                arguments(25, mediumList),
+                arguments(1000, largeList)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("parametersForCountNumberOfItems")
+    void countNumberOfItems(final int expected, final Collection<Integer> list) {
+        Assertions.assertEquals(expected, Sum.countNumberOfItems(list));
+    }
 }

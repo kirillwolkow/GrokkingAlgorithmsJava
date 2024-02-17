@@ -21,4 +21,22 @@ public class Sum {
         }
         return sum;
     }
+
+    /**
+     * This function returns the number of items in a list.
+     * */
+    public static int countNumberOfItems(final Collection<Integer> list) {
+        ArrayList<Integer> newList = new ArrayList<>(list);
+        int count = 0;
+        if(newList.isEmpty()) {
+            return 0;
+        }
+
+        if(newList.size() == 1) {
+            return 1;
+        } else {
+            count += 1 + countNumberOfItems(newList.subList(1, newList.size()));
+        }
+        return count;
+    }
 }
